@@ -21,7 +21,7 @@ class DialogFragmentShowContact :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setSizePercent(82, 50)
-        val contact = arguments?.getSerializable(Constance.CONTACT_SERIALIZABLE) as Contact
+        val contact = arguments?.getParcelable<Contact>(Constance.CONTACT_SERIALIZABLE) as Contact
         putDataToUi(contact)
 
     }

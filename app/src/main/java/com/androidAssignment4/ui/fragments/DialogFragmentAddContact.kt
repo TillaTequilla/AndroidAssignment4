@@ -60,7 +60,7 @@ class DialogFragmentAddContact : BaseDialogFragment<AddContactBinding>(AddContac
 
     private fun addContactToActivity(contact: Contact) {
         val bundle = Bundle()
-        bundle.putSerializable(Constance.CONTACT_SERIALIZABLE, contact)
+        bundle.putParcelable(Constance.CONTACT_SERIALIZABLE, contact)
         setFragmentResult(ADD_CONTACT_RESULT_KEY, bundle)
     }
 

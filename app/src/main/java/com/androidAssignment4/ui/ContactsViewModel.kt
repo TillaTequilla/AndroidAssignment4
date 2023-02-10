@@ -30,4 +30,8 @@ class ContactsViewModel : ViewModel() {
     fun addContact(contact: Contact) {
         _contactList.value = _contactList.value?.plus(contact)
     }
+
+    fun deleteContact(list: List<Contact>) {
+        _contactList.value = _contactList.value?.minus(list.toSet())
+    }
 }

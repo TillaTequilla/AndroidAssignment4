@@ -19,20 +19,17 @@ interface ContactController {
     fun deleteUser(contact: Contact)
     fun showContact(contact: Contact)
 
-    fun showTrash()
-
-    fun hideTrash()
 }
 
 class ContactsRecycleViewAdapter(private val contactController: ContactController) :
     ListAdapter<Contact, ContactsRecycleViewAdapter.Holder>(DiffUtil) {
 
-    lateinit var selectionTracker: SelectionTracker<Long>
+    lateinit var selectionTracker: SelectionTracker<Contact>
 
 
     inner class Holder(item: View) : RecyclerView.ViewHolder(item) {
         private val binding = RecycleviewContactItemBinding.bind(item)
-        fun bind(contact: Contact, selectionTracker: SelectionTracker<Long>) = with(binding) {
+        fun bind(contact: Contact, selectionTracker: SelectionTracker<Contact>) = with(binding) {
 
             tvContactName.text = contact.name
             tvContactCareer.text = contact.career
@@ -48,17 +45,13 @@ class ContactsRecycleViewAdapter(private val contactController: ContactControlle
                 contactController.showContact(contact)
             }
 
-            bindSelectedState(itemView, selectionTracker.isSelected(contact.id.toLong()))
-            if (selectionTracker.isSelected(contact.id.toLong())) {
+            bindSelectedState(itemView, selectionTracker.isSelected(contact))
+            if (selectionTracker.isSelected(contact)) {
                 ivContactBorder.setImageResource(R.drawable.selected_user_border)
             } else {
                 ivContactBorder.setImageResource(R.drawable.user_border)
             }
-            if(selectionTracker.hasSelection()){
-                contactController.showTrash()
-            } else {
-                contactController.hideTrash()
-            }
+
 
         }
 
@@ -66,11 +59,11 @@ class ContactsRecycleViewAdapter(private val contactController: ContactControlle
             view.isActivated = selected
         }
 
-        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Long> =
-            object : ItemDetailsLookup.ItemDetails<Long>() {
+        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Contact> =
+            object : ItemDetailsLookup.ItemDetails<Contact>() {
                 override fun getPosition(): Int = bindingAdapterPosition
-                override fun getSelectionKey(): Long? =
-                    (bindingAdapter as ContactsRecycleViewAdapter).currentList[bindingAdapterPosition].id.toLong()
+                override fun getSelectionKey(): Contact? =
+                    (bindingAdapter as ContactsRecycleViewAdapter).currentList[bindingAdapterPosition]
             }
 
     }
