@@ -3,16 +3,15 @@ package com.androidAssignment4.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.selection.ItemDetailsLookup.ItemDetails
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.androidAssignment4.ui.Contact
 import com.androidAssignment4.R
 import com.androidAssignment4.databinding.RecycleviewContactItemBinding
+import com.androidAssignment4.ui.Contact
 import com.androidAssignment4.util.DiffUtil
+import com.bumptech.glide.Glide
 
 
 interface ContactController {
@@ -59,8 +58,8 @@ class ContactsRecycleViewAdapter(private val contactController: ContactControlle
             view.isActivated = selected
         }
 
-        fun getItemDetails(): ItemDetailsLookup.ItemDetails<Contact> =
-            object : ItemDetailsLookup.ItemDetails<Contact>() {
+        fun getItemDetails(): ItemDetails<Contact> =
+            object : ItemDetails<Contact>() {
                 override fun getPosition(): Int = bindingAdapterPosition
                 override fun getSelectionKey(): Contact? =
                     (bindingAdapter as ContactsRecycleViewAdapter).currentList[bindingAdapterPosition]

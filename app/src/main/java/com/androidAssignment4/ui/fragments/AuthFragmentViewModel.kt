@@ -6,5 +6,4 @@ import androidx.lifecycle.ViewModel
 class AuthFragmentViewModel : ViewModel() {
     lateinit var sharedPreferences: SharedPreferences
 
-
 }
