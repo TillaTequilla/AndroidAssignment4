@@ -16,14 +16,11 @@ class DialogFragmentShowContact :
     BaseDialogFragment<FragmentShowContactBinding>(FragmentShowContactBinding::inflate) {
 
     private val contactViewModel: ContactsViewModel by activityViewModels()
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setSizePercent(82, 50)
         val contact = arguments?.getParcelable<Contact>(Constance.CONTACT_SERIALIZABLE) as Contact
         putDataToUi(contact)
-
     }
 
     private fun putDataToUi(contact: Contact) {

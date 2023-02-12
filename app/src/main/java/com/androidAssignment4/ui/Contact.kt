@@ -9,9 +9,8 @@ data class Contact(
     val name: String,
     val career: String,
     val eMail: String = "",
-    val phone: String = "0",
+    val phone: String = "",
     val address: String = "",
     val birth: String = "",
-    var id: String = name[0] + ((0 until 50000).random()).toString() + name[name.length - 1]
-) : Parcelable {
-}
+    val id: String = name.first() + ((0 .. 50000).random()).toString() + name.last()
+) : Parcelable

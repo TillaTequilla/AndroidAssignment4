@@ -10,7 +10,6 @@ import com.androidAssignment4.util.PreferenceHelper
 import com.androidAssignment4.R
 import com.androidAssignment4.architecture.BaseActivity
 import com.androidAssignment4.databinding.FragmentAuthBinding
-import com.androidAssignment4.ui.fragments.AuthFragmentViewModel
 import com.androidAssignment4.util.NameParser
 
 
@@ -90,21 +89,11 @@ class AuthActivity : BaseActivity<FragmentAuthBinding>(FragmentAuthBinding::infl
     }
 
     private fun rememberInformation() {
-        val checked = binding.cbRememberMe.isChecked
-        authActivityViewModel.apply {
-            PreferenceHelper.putValueToSharedPreferences(
-                Constance.SHARED_PREFERENCES_EMAIL,
-                binding.etEmail.text.toString()
-            )
-            PreferenceHelper.putValueToSharedPreferences(
-                Constance.SHARED_PREFERENCES_PASSWORD,
-                binding.etPassword.text.toString()
-            )
-            PreferenceHelper.putValueToSharedPreferences(
-                Constance.SHARED_PREFERENCES_REMEMBER,
-                checked
-            )
-        }
+        binding.run { authActivityViewModel.putData(
+            etEmail.text.toString(),
+            etPassword.text.toString(),
+            cbRememberMe.isChecked
+        ) }
 
     }
 
