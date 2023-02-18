@@ -1,4 +1,4 @@
-package com.androidAssignment4.ui
+package com.androidAssignment4.ui.mainActivity
 
 import android.os.Bundle
 import com.androidAssignment4.architecture.BaseActivity

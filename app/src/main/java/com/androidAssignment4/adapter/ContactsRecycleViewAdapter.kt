@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.androidAssignment4.R
 import com.androidAssignment4.databinding.RecycleviewContactItemBinding
-import com.androidAssignment4.ui.Contact
+import com.androidAssignment4.model.Contact
 import com.androidAssignment4.util.DiffUtil
 import com.bumptech.glide.Glide
 

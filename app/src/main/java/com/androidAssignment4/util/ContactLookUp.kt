@@ -4,7 +4,7 @@ import android.view.MotionEvent
 import androidx.recyclerview.selection.ItemDetailsLookup
 import androidx.recyclerview.widget.RecyclerView
 import com.androidAssignment4.adapter.ContactsRecycleViewAdapter
-import com.androidAssignment4.ui.Contact
+import com.androidAssignment4.model.Contact
 
 class ContactLookUp(private val recyclerView: RecyclerView) : ItemDetailsLookup<Contact>() {
 

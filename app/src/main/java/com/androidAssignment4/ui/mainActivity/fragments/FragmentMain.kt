@@ -1,4 +1,4 @@
-package com.androidAssignment4.ui.fragments
+package com.androidAssignment4.ui.mainActivity.fragments
 
 import android.os.Bundle
 import android.view.View

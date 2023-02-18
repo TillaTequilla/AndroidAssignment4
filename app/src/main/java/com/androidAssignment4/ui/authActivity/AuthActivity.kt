@@ -1,4 +1,4 @@
-package com.androidAssignment4.ui
+package com.androidAssignment4.ui.authActivity
 
 
 import android.content.Intent
@@ -10,6 +10,7 @@ import com.androidAssignment4.util.PreferenceHelper
 import com.androidAssignment4.R
 import com.androidAssignment4.architecture.BaseActivity
 import com.androidAssignment4.databinding.FragmentAuthBinding
+import com.androidAssignment4.ui.mainActivity.MainActivity
 import com.androidAssignment4.util.NameParser
 
 

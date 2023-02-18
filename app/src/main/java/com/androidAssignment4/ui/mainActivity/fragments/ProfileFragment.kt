@@ -1,8 +1,7 @@
-package com.androidAssignment4.ui.fragments
+package com.androidAssignment4.ui.mainActivity.fragments
 
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.selection.SelectionTracker
 
 import androidx.viewpager2.widget.ViewPager2
 import com.androidAssignment4.R

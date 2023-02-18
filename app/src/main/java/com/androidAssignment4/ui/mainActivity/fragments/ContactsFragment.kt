@@ -1,4 +1,4 @@
-package com.androidAssignment4.ui.fragments
+package com.androidAssignment4.ui.mainActivity.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -15,8 +15,8 @@ import com.androidAssignment4.adapter.ContactController
 import com.androidAssignment4.adapter.ContactsRecycleViewAdapter
 import com.androidAssignment4.architecture.BaseFragment
 import com.androidAssignment4.util.Constance.ADD_CONTACT_RESULT_KEY
-import com.androidAssignment4.ui.Contact
-import com.androidAssignment4.ui.ContactsViewModel
+import com.androidAssignment4.model.Contact
+import com.androidAssignment4.ui.authActivity.ContactsViewModel
 
 import com.androidAssignment4.util.Constance
 import com.androidAssignment4.util.SwipeToDeleteCallback

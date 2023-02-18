@@ -2,8 +2,8 @@ package com.androidAssignment4.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.androidAssignment4.ui.fragments.ContactsFragment
-import com.androidAssignment4.ui.fragments.ProfileFragment
+import com.androidAssignment4.ui.mainActivity.fragments.ContactsFragment
+import com.androidAssignment4.ui.mainActivity.fragments.ProfileFragment
 
 class ViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter((fragment)) {
     override fun getItemCount(): Int {

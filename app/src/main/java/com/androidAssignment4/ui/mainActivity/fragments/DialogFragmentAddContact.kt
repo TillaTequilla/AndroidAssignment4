@@ -1,4 +1,4 @@
-package com.androidAssignment4.ui.fragments
+package com.androidAssignment4.ui.mainActivity.fragments
 
 import android.app.Activity
 import android.content.Intent
@@ -16,7 +16,7 @@ import com.androidAssignment4.architecture.BaseDialogFragment
 import com.androidAssignment4.util.Constance.ADD_CONTACT_RESULT_KEY
 import com.androidAssignment4.databinding.AddContactBinding
 import com.androidAssignment4.extension.setSizePercent
-import com.androidAssignment4.ui.Contact
+import com.androidAssignment4.model.Contact
 import com.androidAssignment4.util.Constance
 
 

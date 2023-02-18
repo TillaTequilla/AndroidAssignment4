@@ -1,8 +1,9 @@
-package com.androidAssignment4.ui
+package com.androidAssignment4.ui.authActivity
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.androidAssignment4.model.Contact
 import com.androidAssignment4.util.UsersList
 
 class ContactsViewModel : ViewModel() {

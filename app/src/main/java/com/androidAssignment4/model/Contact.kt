@@ -1,4 +1,4 @@
-package com.androidAssignment4.ui
+package com.androidAssignment4.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
