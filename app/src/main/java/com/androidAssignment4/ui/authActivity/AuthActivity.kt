@@ -3,22 +3,20 @@ package com.androidAssignment4.ui.authActivity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.core.widget.doAfterTextChanged
 import com.androidAssignment4.util.Constance
 import com.androidAssignment4.util.PreferenceHelper
 import com.androidAssignment4.R
 import com.androidAssignment4.architecture.BaseActivity
-import com.androidAssignment4.databinding.FragmentAuthBinding
+import com.androidAssignment4.databinding.ActivityAuthBinding
 import com.androidAssignment4.ui.mainActivity.MainActivity
 import com.androidAssignment4.util.NameParser
 
 
-class AuthActivity : BaseActivity<FragmentAuthBinding>(FragmentAuthBinding::inflate) {
-
-    private val authActivityViewModel: AuthFragmentViewModel by viewModels()
+class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::inflate) {
+    private lateinit var preferenceHelper: PreferenceHelper
     override fun onCreate(savedInstanceState: Bundle?) {
-        authActivityViewModel.sharedPreferences = PreferenceHelper.init(this)
+        preferenceHelper = PreferenceHelper(this)
         super.onCreate(savedInstanceState)
         getPreferencesData()
         listenerInitialization()
@@ -43,7 +41,7 @@ class AuthActivity : BaseActivity<FragmentAuthBinding>(FragmentAuthBinding::infl
             btnRegister.setOnClickListener {
                 if (cbRememberMe.isChecked) {
                     rememberInformation()
-                } else authActivityViewModel.sharedPreferences.edit().clear().apply()
+                } else preferenceHelper.clear()
                 if (checkForInput()) {
                     val name: String = getName()
                     val intent = Intent(this@AuthActivity, MainActivity::class.java)
@@ -66,21 +64,18 @@ class AuthActivity : BaseActivity<FragmentAuthBinding>(FragmentAuthBinding::infl
     private fun getPreferencesData() {
         with(binding) {
             if (
-                PreferenceHelper.getValueFromSharedPreferences(
-                    Constance.SHARED_PREFERENCES_REMEMBER,
-                    false
+                preferenceHelper.getBoolean(
+                    Constance.SHARED_PREFERENCES_REMEMBER
                 )
             ) {
                 etEmail.setText(
-                    PreferenceHelper.getValueFromSharedPreferences(
-                        Constance.SHARED_PREFERENCES_EMAIL,
-                        ""
+                    preferenceHelper.getString(
+                        Constance.SHARED_PREFERENCES_EMAIL
                     )
                 )
                 etPassword.setText(
-                    PreferenceHelper.getValueFromSharedPreferences(
-                        Constance.SHARED_PREFERENCES_PASSWORD,
-                        ""
+                    preferenceHelper.getString(
+                        Constance.SHARED_PREFERENCES_PASSWORD
                     )
                 )
                 cbRememberMe.isChecked = true
@@ -90,17 +85,22 @@ class AuthActivity : BaseActivity<FragmentAuthBinding>(FragmentAuthBinding::infl
     }
 
     private fun rememberInformation() {
-        binding.run { authActivityViewModel.putData(
-            etEmail.text.toString(),
-            etPassword.text.toString(),
-            cbRememberMe.isChecked
-        ) }
+        binding.run {
+            preferenceHelper.putBoolean(
+                Constance.SHARED_PREFERENCES_REMEMBER,
+                cbRememberMe.isChecked
+            )
+            preferenceHelper.putString(
+                Constance.SHARED_PREFERENCES_PASSWORD,
+                etPassword.text.toString()
+            )
+            preferenceHelper.putString(Constance.SHARED_PREFERENCES_EMAIL, etEmail.text.toString())
+        }
 
     }
 
     private fun getName(): String {
         return NameParser.getName(binding.etEmail.text.toString())
     }
-
 
 }

@@ -2,7 +2,7 @@ package com.androidAssignment4.ui.mainActivity.fragments
 
 import android.os.Bundle
 import android.view.View
-import com.androidAssignment4.adapter.ViewPagerAdapter
+import com.androidAssignment4.ui.mainActivity.adapters.ViewPagerAdapter
 import com.androidAssignment4.architecture.BaseFragment
 import com.androidAssignment4.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -20,7 +20,6 @@ class FragmentMain : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
                     0 -> "Profile"
                     else -> "Contacts"
                 }
-
         }.attach()
     }
 }

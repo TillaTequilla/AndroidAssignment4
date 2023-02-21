@@ -1,4 +1,4 @@
-package com.androidAssignment4.adapter
+package com.androidAssignment4.ui.mainActivity.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

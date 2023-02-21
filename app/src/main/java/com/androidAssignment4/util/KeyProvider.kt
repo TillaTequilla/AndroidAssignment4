@@ -1,7 +1,7 @@
 package com.androidAssignment4.util
 
 import androidx.recyclerview.selection.ItemKeyProvider
-import com.androidAssignment4.adapter.ContactsRecycleViewAdapter
+import com.androidAssignment4.ui.mainActivity.adapters.ContactsRecycleViewAdapter
 import com.androidAssignment4.model.Contact
 
 class KeyProvider(private val adapter: ContactsRecycleViewAdapter) :

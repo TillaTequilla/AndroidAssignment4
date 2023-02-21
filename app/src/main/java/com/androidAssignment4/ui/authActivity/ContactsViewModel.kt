@@ -19,9 +19,7 @@ class ContactsViewModel : ViewModel() {
     fun getListUsers() = _contactList.value
 
     fun deleteContact(index: Int) {
-        _contactList.value = _contactList.value?.toMutableList()?.apply {
-            removeAt(index)
-        }
+        deleteContact(_contactList.value!![index])
     }
 
     fun deleteContact(contact: Contact) {
